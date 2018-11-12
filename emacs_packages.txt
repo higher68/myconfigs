@@ -1,0 +1,7 @@
+  auto-virtualenv... 20180408.1010 installed             Lightweight auto activate python virtualenvs
+  company-go         20180427.1856 installed             company-mode backend for Go (using gocode)
+  go-mode            20181012.329  installed             Major mode for the Go programming language
+  jedi               20160426.456  installed             a Python auto-completion for Emacs
+  python-mode        20180814.721  installed             Python major mode
+  virtualenvwrapper  20180212.144  installed             a featureful virtualenv tool for Emacs
+  web-mode           20180813.1350 installed             major mode for editing web templates
