@@ -1,0 +1,109 @@
+" 'Shougo/neocomplete.vim' {{{
+let g:neocomplete#enable_at_startup = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"""}}}
+
+" 'justmao945/vim-clang' {{{
+
+" disable auto completion for vim-clanG
+let g:clang_auto = 0
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_use_library = 1
+
+" default 'longest' can not work with neocomplete
+let g:clang_c_completeopt   = 'menuone'
+let g:clang_cpp_completeopt = 'menuone'
+
+let g:clang_exec = 'clang'
+let g:clang_format_exec = 'clang-format'
+
+let g:clang_c_options = '-std=c11'
+let g:clang_cpp_options = '
+  \ -std=c++1z 
+  \ -stdlib=libc++ 
+  \ -pedantic-errors
+  \ '
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/junya/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/junya/.cache/dein')
+  call dein#begin('/Users/junya/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/junya/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('justmao945/vim-clang')
+  call dein#add('fatih/vim-go')
+  call dein#add('Shougo/neoinclude.vim')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+" ---------------------------
+" file settings
+" ---------------------------
+" no backup file
+set nobackup
+" no swqp file
+set noswapfile
+
+" ---------------------------
+" key settings
+" ---------------------------
+" バックスペース許可
+set backspace=indent,eol,start
+" バッファスクロール
+set mouse=a
+
+" ---------------------------
+" command settings
+" ---------------------------
+
+" ---------------------------
+" visual settings
+" ---------------------------
+" 行番号表示
+set number
+" Tab文字を半角スペースにする
+set expandtab
+" 行頭以外のTab文字の表示幅（スペースいくつ分）
+set tabstop=2
+" 行頭でのTab文字の表示幅
+set shiftwidth=2
+" ビープを視覚化し、何もさせない
+set visualbell t_vb =
+" ビープを許可しない
+set noerrorbells
+" show inputting command
+set showcmd
+" comment-out blue
+hi Comment ctermfg=3
